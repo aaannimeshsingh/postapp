@@ -9,6 +9,8 @@ const crypto=require('crypto');
 const path=require('path');
 const multer=require('multer');
 const upload=require("./config/multerconfig");
+require('dotenv').config();
+
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
