@@ -9,8 +9,6 @@ const crypto=require('crypto');
 const path=require('path');
 const multer=require('multer');
 const upload=require("./config/multerconfig");
-require('dotenv').config();
-
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
@@ -94,12 +92,12 @@ app.get("/profile", isLoggedIn, async function(req, res) {
     res.render("profile",{user});
 });
 
-app.post("upload",upload.single("image"),async function(req,res){
+/*app.post("/upload",upload.single("image"),async function(req,res){
     let user=await userModel.findOne({email:req.user.email});
     user.profilepic=req.file.filename;
     await user.save();
     res.redirect("/profile");
-})
+})*/
 
 app.get("/like/:id", isLoggedIn, async function (req, res) {
     try {
@@ -186,5 +184,5 @@ app.post("/upload", isLoggedIn, upload.single("image"), async function (req, res
     console.log(req.file);
 })*/
 
-app.listen(process.env.PORT || 3000);
+app.listen(3000);
 
