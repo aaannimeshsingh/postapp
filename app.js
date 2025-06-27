@@ -186,4 +186,5 @@ app.post("/upload", isLoggedIn, upload.single("image"), async function (req, res
     console.log(req.file);
 })*/
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
+
